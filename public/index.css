@@ -1,0 +1,15 @@
+.delete-btn{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.delete-btn:hover{
+    color: #fff;
+}
+
+
+.imag-con{
+      width: 100%;           
+    height: auto;       
+    object-fit: cover;  
+}

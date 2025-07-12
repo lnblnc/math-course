@@ -1,0 +1,38 @@
+<section class="container my-5">
+  <h2 class="text-center mb-4">📋 Ariza qaldiruv</h2>
+  <form action="/send-application" method="POST" class="row g-3 needs-validation" novalidate>
+    
+    <div class="col-md-6">
+      <label for="name" class="form-label">Ismingiz</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+      <div class="invalid-feedback">Iltimos, ismingizni kiriting.</div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="phone" class="form-label">Telefon raqam</label>
+      <input type="tel" class="form-control" id="phone" name="phone" pattern="^\+998\d{9}$" placeholder="+998 88 266 1205" required>
+      <div class="invalid-feedback">To‘g‘ri telefon raqam kiriting. (masalan: +998901234567)</div>
+    </div>
+    
+   <div class="input-group">
+  <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+    <option selected>mektep oquvchisi..</option>
+    <option value="1">abutrend</option>
+    <option value="2">student</option>
+    <option value="3">oquwshi</option>
+  </select>
+</div>
+
+    
+
+    <div class="col-12">
+      <label for="message" class="form-label">Qo‘simcha izah</label>
+      <textarea class="form-control" id="message" name="message" rows="4" placeholder="Savolingiz yoki izohingiz..."></textarea>
+    </div>
+
+    <div class="col-12 text-center">
+      <button class="btn btn-primary btn-lg px-5 mt-3" type="submit">Yuborish</button>
+    </div>
+
+  </form>
+</section>

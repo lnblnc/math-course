@@ -1,0 +1,93 @@
+{{#if isAdmin}}
+
+<div class="w-75 mx-auto">
+<p class="fs-1">Natiyjeler</p>
+<form action="/add" method="post">
+{{#if natiyjelerError}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Error!</strong> 
+  <p>{{natiyjelerError}}</p>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+    <div class="form-floating mb-3">
+  <input type="text" class="form-control" name="titlel" id="floatingInput" placeholder="title">
+  <label for="floatingInput">title</label>
+</div>
+ <div class="form-floating mb-3">
+  <textarea class="form-control" name="malumotlar_add" placeholder="malumotlar_add" id="floatingTextarea2" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">ma'lumotlar</label>
+</div>
+
+  <div class="form-floating mb-3">
+  <input type="text" class="form-control" name="imag" id="floatingInput" placeholder="imag">
+  <label for="floatingInput">rasm</label>
+</div>
+<div class="input-group flex-nowrap">
+  <span class="input-group-text" id="addon-wrapping">Natiyje</span>
+  <input type="text" class="form-control" name="natija" placeholder="Natija" aria-label="Natija" aria-describedby="addon-wrapping">
+</div>
+  <button type="submit" class="btn btn-success m-3">natiyjelerdi qosuv </button>
+</form>
+</div>
+
+<h1><p>BJ Matematika kursimizda natijeler!</p></h1>
+{{#if userCourses.length}}
+ <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  {{#each userCourses}}
+   <div class="col">
+  <div class="card shadow-sm">
+    <img src={{imag}} alt="imag">
+    <div class="card-body">
+      <p class="card-text fw-bold">{{titlel}}</p>
+      <div class="d-flex justify-content-end align-items-center">
+        <small class="text-body-secondary fs-5">Natija:{{natija}}</small>
+      </div>
+      <div class="card-footer">
+        <div class="btn-group-sm" role="group" aria-label="basic example">
+            <a type="button" class="btn btn-outline-success" href="/products/{{_id}}">batafsil</a>
+            {{#if @root.token}}
+              {{#ifequal user @root.userId}}
+                <form action="/delete/{{_id}}" method="post" class="btn btn-outline-danger m-0">
+                <button type="submit" class="delete-btn">O'chirish</button>
+                </form>
+              {{/ifequal}}
+            {{/if}}
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+  {{/each}}
+</div>
+{{else}}
+<p>no nateje</p>
+{{/if}}
+
+{{else}}
+<h1><p>BJ Matematika kursimizda natijeler!</p></h1>
+{{#if userCourses}}
+ <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  {{#each userCourses}}
+   <div class="col">
+  <div class="card shadow-sm">
+    <img src={{imag}} alt="imag">
+    <div class="card-body">
+      <p class="card-text fw-bold">{{titlel}}</p>
+     
+      <div class="d-flex justify-content-end align-items-center">
+        <small class="text-body-secondary fs-5">Natija:{{natija}}</small>
+
+      </div>
+      <div class="card-footer">
+        <div class="btn-group-sm" role="group" aria-label="basic example">
+            <a type="button" class="btn btn-outline-success" href="/products/{{_id}}">batafsil</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+  {{/each}}
+</div>
+{{/if}}
+{{/if}}
